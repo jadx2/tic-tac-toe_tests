@@ -1,24 +1,40 @@
 #!/usr/bin/env ruby
-puts "Welcome to tic_tac_toe championship"
+puts 'Welcome to tic_tac_toe championship'
 
-#player 1 registration
-puts "Player one, enter your name."
-player_one = gets.chomp
-puts "Welcome #{player_one}. Choose your game token. Press X or O"
-player_one_token = gets.chomp.upcase
+# player 1 registration
+puts 'Player1, enter your name.'
+player1 = gets.chomp
+puts "Welcome #{player1}. Choose your token. Press X or O:"
+player1_token = gets.chomp.upcase
 
-while player_one_token != "X" && player_one_token != "O" do
-    puts "Oops! Wrong token. Choose 'X' or 'O'."
-    player_one_token = gets.chomp.upcase
+while player1_token != 'X' && player1_token != 'O'
+  puts "Oops! Wrong token. Choose 'X' or 'O':"
+  player1_token = gets.chomp.upcase
 end
-puts "You've chosen #{player_one_token}. You're all setup. Wait for your turn."
+puts "You've chosen #{player1_token}. You're all setup. Wait for your turn."
 
-#player 2 registration
-puts "Player two, enter your name."
-player_two = gets.chomp
-player_two_token = ""
-player_one_token == "X" ? player_two_token = "O" : player_two_token = "X"
+# player 2 registration
+puts 'Player2, enter your name.'
+player2 = gets.chomp
+player2_token = player1_token == 'X' ? 'O' : 'X'
 
-puts "Welcome #{player_two}. Your token is #{player_two_token}"
+puts "Welcome #{player2}. Your token is #{player2_token}"
 
+# Begin the game
+puts "Let's begin!"
 
+puts "#{player1} make your move:"
+player1_move = gets.chomp
+
+until player1_move.match(/[ 1-9 ]/)
+  puts 'Wrong move. Choose a number between 1 to 9'
+  player1_move = gets.chomp
+end
+
+puts "#{player2} make your move:"
+player2_move = gets.chomp
+
+until player2_move.match(/[ 1-9 ]/)
+  puts 'Wrong move. Choose a number between 1 to 9'
+  player2_move = gets.chomp
+end

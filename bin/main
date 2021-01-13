@@ -1,31 +1,22 @@
 #!/usr/bin/env ruby
-## Begin the game
-# puts "Let's begin!"
 
-#
-# puts "#{player2} make your move:"
-# player2_move = gets.chomp
-# until player2_move.match(/[ 1-9 ]/)
-#  puts 'Wrong move. Choose a number between 1 to 9'
-#  player2_move = gets.chomp
-# end
 require_relative '../lib/players'
 require_relative '../lib/board'
 
 puts 'Player1, enter your name: '
-player1_name = gets.chomp
+name1 = gets.chomp
 
-puts "#{player1_name}, choose 'X' or 'O': "
-player1_token = gets.chomp.upcase
+puts "#{name1}, choose 'X' or 'O': "
+token = gets.chomp.upcase
 
-player1 = Player.new(player1_name, player1_token)
+Player.new(name1, token)
 
 puts 'Player2, enter your name: '
-player2_name = gets.chomp
+name2 = gets.chomp
 
-player2 = Player.new(player2_name)
+Player.new(name2)
 
-player2_token = Player.players.values[1]
+player = Player.players
 
 game_board = Board.new
 
@@ -34,7 +25,7 @@ winner = nil
 draw = false
 turn = true
 while game_on
-  current_player = turn == true ? player1_name : player2_name
+  current_player = turn == true ? player.keys[0] : player.keys[1]
   game_board.display
   puts "#{current_player} make your move: "
   move = gets.chomp

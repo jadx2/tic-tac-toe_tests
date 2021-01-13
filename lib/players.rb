@@ -1,3 +1,4 @@
+# rubocop:disable Style/ClassVars
 class Player
   attr_accessor :name, :token
 
@@ -21,3 +22,5 @@ class Player
     @@players
   end
 end
+
+# rubocop:enable Style/ClassVars

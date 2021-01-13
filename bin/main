@@ -20,18 +20,20 @@ player = Player.players
 
 game_board = Board.new
 
-game_on = true
+# game_on = true
 winner = nil
-draw = false
+# draw = false
 turn = true
-while game_on
+9.times do
   current_player = turn == true ? player.keys[0] : player.keys[1]
   game_board.display
   puts "#{current_player} make your move: "
   move = gets.chomp
-  game_board.verify_token(move)
+  game_board.verify_cell(move)
   turn = !turn
-  game_on = false if winner || draw
+  #    if winner || draw
+  #        game_on = false
+  #    end
 end
 
 puts winner.nil? ? "it's a tie." : "the winner is #{winner}"

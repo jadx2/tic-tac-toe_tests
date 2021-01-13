@@ -33,6 +33,8 @@ player2_token = Player.get_player.values[1]
 game_board = Board.new
 
 game_on = true
+winner = nil
+draw = false
 turn = true
 while game_on do 
     current_player = turn == true ? player1_name : player2_name
@@ -41,10 +43,9 @@ while game_on do
     move = gets.chomp
     game_board.verify_token(move)
     turn = !turn
-    # if winner || draw 
-    #     game_on = false
-    #     puts "Game Over!"
-    # end
+    if winner || draw 
+        game_on = false
+    end
 end
 
-
+puts !winner.nil? ? "the winner is #{winner}" : "it's a tie."

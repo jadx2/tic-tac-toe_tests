@@ -19,7 +19,7 @@ class Board
     @cell[input - 1] = token
   end
 
-  def verify_cell(input, _token)
+  def verify_cell(input)
     until input.match(/[ 1-9 ]/)
       puts 'Wrong move. Choose a number between 1 to 9'
       input = gets.chomp

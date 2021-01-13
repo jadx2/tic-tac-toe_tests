@@ -2,7 +2,6 @@
 ## Begin the game
 # puts "Let's begin!"
 
-
 #
 # puts "#{player2} make your move:"
 # player2_move = gets.chomp
@@ -24,11 +23,9 @@ player1 = Player.new(player1_name, player1_token)
 puts 'Player2, enter your name: '
 player2_name = gets.chomp
 
-
 player2 = Player.new(player2_name)
 
-player2_token = Player.get_player.values[1]
-
+player2_token = Player.players.values[1]
 
 game_board = Board.new
 
@@ -36,16 +33,14 @@ game_on = true
 winner = nil
 draw = false
 turn = true
-while game_on do 
-    current_player = turn == true ? player1_name : player2_name
-    game_board.display
-    puts "#{current_player} make your move: "
-    move = gets.chomp
-    game_board.verify_token(move)
-    turn = !turn
-    if winner || draw 
-        game_on = false
-    end
+while game_on
+  current_player = turn == true ? player1_name : player2_name
+  game_board.display
+  puts "#{current_player} make your move: "
+  move = gets.chomp
+  game_board.verify_token(move)
+  turn = !turn
+  game_on = false if winner || draw
 end
 
-puts !winner.nil? ? "the winner is #{winner}" : "it's a tie."
+puts winner.nil? ? "it's a tie." : "the winner is #{winner}"

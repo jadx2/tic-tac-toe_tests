@@ -1,2 +1,43 @@
 #!/usr/bin/env ruby
-puts 'hello world!'
+
+puts '=========== Tic Tac Toe ==========='
+
+puts 'Player1, enter your name: '
+player1 = gets.chomp
+
+puts 'Player2, enter your name: '
+player2 = gets.chomp
+
+players = { player1 => 'X', player2 => 'O' }
+
+puts "#{player1} is #{players[player1]}"
+puts "#{player2} is #{players[player2]}"
+
+board = <<-HERDOC
+                   1 | 2 | 3
+                  ---+---+---
+                   4 | 5 | 6
+                  ---+---+---
+                   7 | 8 | 9
+HERDOC
+game_on = true
+times = 0
+turn = true
+
+while game_on
+  puts board
+  current_player = turn == true ? players.keys[0] : players.keys[1]
+  puts "#{current_player} make a move"
+  move = gets.chomp
+  puts move
+  turn = !turn
+  times += 1
+  # if move is a number between 1 and 9 && move cell is available
+  #   update_board
+  # else
+  #   puts "Try again"
+  # end
+  game_on = false if times == 9
+end
+
+puts 'The winner is X '

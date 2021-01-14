@@ -17,7 +17,7 @@ puts "#{player2} is #{players[player2]}"
 # winner = false
 # draw = false
 board = <<-HERDOC
-                   1 | 2 | 3#{' '}
+                   1 | 2 | 3
                   ---+---+---
                    4 | 5 | 6
                   ---+---+---

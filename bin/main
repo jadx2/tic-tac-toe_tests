@@ -20,28 +20,24 @@ board = <<-HERDOC
                   ---+---+---
                    7 | 8 | 9
 HERDOC
+game_on = true
+times = 0
 turn = true
 
-9.times do
-  # rubocop:disable Layout/LineLength
-  # this is a while loop that ends with game_on = false. For this milestone we are using times loop to fix it to 9 times.
-  # rubocop:enable Layout/LineLength
+while game_on
   puts board
   current_player = turn == true ? players.keys[0] : players.keys[1]
   puts "#{current_player} make a move"
   move = gets.chomp
   puts move
   turn = !turn
-  # if move is a number between 1 and 9 && move cell is available then updates the the board.
-  # board prints again and player2 makes move.
-  # if move is a number between 1 and 9 && move cell is available then updates the the board.
-  # if no more spaces left && !winner then draw = true
-  # else winner
+  times += 1
+  # if move is a number between 1 and 9 && move cell is available
+  #   update_board
+  # else
+  #   puts "Try again"
+  # end
+  game_on = false if times == 9
 end
 
-# if winner then
 puts 'The winner is X '
-# else
-# puts "It is a tie."
-#
-Do you want a rematch?(Y / N)

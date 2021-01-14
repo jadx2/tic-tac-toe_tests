@@ -1,39 +1,52 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/players'
-require_relative '../lib/board'
+puts '=========== Tic Tac Toe ==========='
 
 puts 'Player1, enter your name: '
-name1 = gets.chomp
-
-puts "#{name1}, choose 'X' or 'O': "
-token = gets.chomp.upcase
-
-Player.new(name1, token)
+player1 = gets.chomp
 
 puts 'Player2, enter your name: '
-name2 = gets.chomp
+player2 = gets.chomp
 
-Player.new(name2)
+players = { player1 => 'X', player2 => 'O' }
 
-player = Player.players
-
-game_board = Board.new
+puts "#{player1} is #{players[player1]}"
+puts "#{player2} is #{players[player2]}"
 
 # game_on = true
-winner = nil
+# winner = false
 # draw = false
-turn = true
+board = <<-HERDOC
+                   1 | 2 | 3#{' '}
+                  ---+---+---
+                   4 | 5 | 6
+                  ---+---+---
+                   7 | 8 | 9
+HERDOC
+
 9.times do
-  current_player = turn == true ? player.keys[0] : player.keys[1]
-  game_board.display
-  puts "#{current_player} make your move: "
-  move = gets.chomp
-  game_board.verify_cell(move)
-  turn = !turn
-  #    if winner || draw
-  #        game_on = false
-  #    end
+  # while game_on
+  # rubocop:disable Layout/LineLength
+  # this is a while loop that ends with game_on = false. For this milestone we are using times loop to fix it to 9 times.
+  # rubocop:enable Layout/LineLength
+  puts board
+  puts "#{player1} make a move"
+  move1 = gets.chomp
+  puts move1
+  # if move is a number between 1 and 9 && move cell is available then updates the the board.
+  # board prints again and player2 makes move.
+  # if move is a number between 1 and 9 && move cell is available then updates the the board.
+  # if no more spaces left && !winner then draw = true
+  # else winner
+
+  # if  winner || draw
+  #  game_on = false
+  # end
 end
 
-puts winner.nil? ? "it's a tie." : "the winner is #{winner}"
+# if winner then
+puts 'The winner is X '
+# else
+# puts "It is a tie."
+#
+# Do you want a rematch? (Y/N)

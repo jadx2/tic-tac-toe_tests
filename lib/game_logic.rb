@@ -1,6 +1,7 @@
 class Board
   attr_reader :cells
-  WIN_COMBO = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
+
+  WIN_COMBO = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]].freeze
 
   def initialize
     @cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -26,29 +27,24 @@ class Board
 
   def winner(symbol)
     WIN_COMBO.any? do |combo|
-      combo.all? { |item| @cells[item - 1] == symbol}
+      combo.all? { |item| @cells[item - 1] == symbol }
     end
   end
 
   def tie
-    @cells.all? { |cell| cell == 'X' || cell == 'O'}
+    @cells.all? { |cell| %w[X O].include?(cell) }
   end
 end
 
 class Game
-
   def verify_move(input, symbol, board)
-    cell_value = input - 1
     if input.between?(1, 9) == false
-       puts "Choose between 1 and 9"
-       false
+      puts 'Choose between 1 and 9'
     elsif board.update_board(input, symbol) == false
-      puts "Space already taken. Try again"
-      false
+      puts 'Space already taken. Try again'
     else
       board.update_board(input, symbol)
       true
     end
   end
-
 end

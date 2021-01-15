@@ -1,51 +1,49 @@
 #!/usr/bin/env ruby
+# rubocop:disable Metrics/BlockNesting
 
-require_relative "../lib/game_logic"
+require_relative '../lib/game_logic'
 match = true
 
 while match
-system "clear"
-puts "================== Tic Tac Toe =================="
+  system 'clear'
+  puts '================== Tic Tac Toe =================='
 
-puts "Who is going to be 'X' symbol? Enter your name: "
-player1 = gets.chomp
+  puts "Who is going to be 'X' symbol? Enter your name: "
+  player1 = gets.chomp
 
-puts "Who is going to be 'O' symbol? Enter your name: "
-player2 = gets.chomp
+  puts "Who is going to be 'O' symbol? Enter your name: "
+  player2 = gets.chomp
 
-players = { player1 => "X", player2 => "O" }
-system "clear"
-board = Board.new
+  players = { player1 => 'X', player2 => 'O' }
+  system 'clear'
+  board = Board.new
 
-game_on = true
-turn = true
-game = Game.new
+  game_on = true
+  turn = true
+  game = Game.new
 
-while game_on
-  system "clear"
-  current_player = turn == true ? players.keys[0] : players.keys[1]
-  puts "#{current_player} make your move: "
-  board.display
-  move = gets.chomp.to_i
-  if game.verify_move(move, players[current_player], board)
-    if board.winner(players[current_player])
-      board.display
-      game_on = false
-      puts "The winner is #{current_player}!!"
-    elsif board.tie
-      board.display
-      game_on = false
-      puts "It's a tie"
-    else 
-      turn = !turn
+  while game_on
+    current_player = turn == true ? players.keys[0] : players.keys[1]
+    puts "#{current_player} make your move: "
+    board.display
+    move = gets.chomp.to_i
+    if game.verify_move(move, players[current_player], board)
+      if board.winner(players[current_player])
+        board.display
+        game_on = false
+        puts "The winner is #{current_player}!!"
+      elsif board.tie
+        board.display
+        game_on = false
+        puts "It's a tie"
+      else
+        turn = !turn
+      end
     end
+
   end
-  
+  puts "To replay the game, press any key or 'Q' to quit."
+  match = gets.chomp.upcase != 'Q'
 end
-puts "To replay the game, press any key or 'Q' to quit."
-  if gets.chomp.upcase == 'Q'
-    match = false
-  else
-    match = true
-  end
-end
+
+# rubocop:enable Metrics/BlockNesting

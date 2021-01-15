@@ -1,43 +1,35 @@
 #!/usr/bin/env ruby
 
-puts '=========== Tic Tac Toe ==========='
+require_relative "../lib/game_logic"
 
-puts 'Player1, enter your name: '
+puts "================== Tic Tac Toe =================="
+
+puts "Who is going to be 'X' symbol? Enter your name: "
 player1 = gets.chomp
 
-puts 'Player2, enter your name: '
+puts "Who is going to be 'O' symbol? Enter your name: "
 player2 = gets.chomp
 
-players = { player1 => 'X', player2 => 'O' }
+players = { player1 => "X", player2 => "O" }
 
-puts "#{player1} is #{players[player1]}"
-puts "#{player2} is #{players[player2]}"
+board = Board.new
 
-board = <<-HERDOC
-                   1 | 2 | 3
-                  ---+---+---
-                   4 | 5 | 6
-                  ---+---+---
-                   7 | 8 | 9
-HERDOC
 game_on = true
-times = 0
+winner = nil
+draw = false
 turn = true
 
 while game_on
-  puts board
   current_player = turn == true ? players.keys[0] : players.keys[1]
-  puts "#{current_player} make a move"
+  board.display
+  puts "#{current_player} make your move: "
   move = gets.chomp
-  puts move
+  board.verify_move(move, players[current_player])
+  #board.update_board(move, players[current_player])
   turn = !turn
-  times += 1
-  # if move is a number between 1 and 9 && move cell is available
-  #   update_board
-  # else
-  #   puts "Try again"
-  # end
-  game_on = false if times == 9
+  if winner || draw
+    game_on = false
+  end
 end
 
-puts 'The winner is X '
+puts winner.nil? ? "it's a tie." : "the winner is #{winner}"

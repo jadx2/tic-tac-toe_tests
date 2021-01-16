@@ -25,20 +25,22 @@ while match
   while game_on
     current_player = turn == true ? players.keys[0] : players.keys[1]
     puts "#{current_player} make your move: "
-    board.display
+    puts board.display
     move = gets.chomp.to_i
     if game.verify_move(move, players[current_player], board)
       if board.winner(players[current_player])
-        board.display
+        puts board.display
         game_on = false
         puts "The winner is #{current_player}!!"
       elsif board.tie
-        board.display
+        puts board.display
         game_on = false
         puts "It's a tie"
       else
         turn = !turn
       end
+    else
+      puts "Wrong move! Choose an available space between 1 and 9"
     end
 
   end

@@ -8,7 +8,7 @@ class Board
   end
 
   def display
-    puts <<-HERDOC
+    <<-HERDOC
                  #{@cells[0]} | #{@cells[1]} | #{@cells[2]}
                 ---+---+---
                  #{@cells[3]} | #{@cells[4]} | #{@cells[5]}
@@ -39,9 +39,9 @@ end
 class Game
   def verify_move(input, symbol, board)
     if input.between?(1, 9) == false
-      puts 'Choose between 1 and 9'
+      false
     elsif board.update_board(input, symbol) == false
-      puts 'Space already taken. Try again'
+      false
     else
       board.update_board(input, symbol)
       true

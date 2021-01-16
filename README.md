@@ -17,8 +17,12 @@ The project implements the classical tic-tac-toe to be played in the terminal. T
 
 ### Set Up
 
-- Clone or download this repository.
-- If necessary, unzip the downloaded directory.
+- Go to the "Code" section of this repository and press the green button that says "Code". Copy the URL or the SSH key.
+- Go to the termina and enter:
+```
+git clone URL/SSH key
+```
+- If you don't have git you can download this project and unzip it.
 
 ### Usage
 

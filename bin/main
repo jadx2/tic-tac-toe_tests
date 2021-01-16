@@ -40,7 +40,7 @@ while match
         turn = !turn
       end
     else
-      puts "Wrong move! Choose an available space between 1 and 9"
+      puts 'Wrong move! Choose an available space between 1 and 9'
     end
 
   end

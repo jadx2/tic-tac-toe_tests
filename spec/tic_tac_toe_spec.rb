@@ -1,4 +1,4 @@
-#spec/tic-tac-toe_spec.rb
+# spec/tic-tac-toe_spec.rb
 require '../lib/game_logic'
 
 describe Board do
@@ -9,7 +9,7 @@ describe Board do
     end
   end
 
-  describe '#update_board' do	
+  describe '#update_board' do
     it 'Successufully makes a new movement' do
       board.update_board 3, 'X'
       expect(board.cells).to eql [1, 2, 'X', 4, 5, 6, 7, 8, 9]

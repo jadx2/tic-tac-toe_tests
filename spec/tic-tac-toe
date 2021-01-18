@@ -1,0 +1,2 @@
+#spec/tic-tac-toe_spec.rb
+require './lib/game_logic'

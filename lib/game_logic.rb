@@ -38,7 +38,7 @@ end
 
 class Game
   def verify_move(input, symbol, board)
-    if input.is_a? (String)
+    if input.is_a?(String)
       false
     elsif input.between?(1, 9) == false
       false

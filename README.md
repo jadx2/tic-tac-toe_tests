@@ -19,9 +19,11 @@ The project implements the classical tic-tac-toe to be played in the terminal. T
 
 - Go to the "Code" section of this repository and press the green button that says "Code". Copy the URL or the SSH key.
 - Go to the termina and enter:
+
 ```
 git clone URL/SSH key
 ```
+
 - If you don't have git you can download this project and unzip it.
 
 ### Usage
@@ -51,6 +53,22 @@ main
 6. If no player gets three marks in a pattern, the game ends in a tie.
 7. You can choose to play again or end the game.
 
+## Rspec tests
+
+![Screenshot of testing](capture.png)
+
+For testing make sure you install Rspec:
+
+```
+gem install rspec
+```
+
+Run the rspec command in the project root directory:
+
+```
+rspec
+```
+
 ## Authors
 
 1. Jaim Delmar
@@ -64,6 +82,11 @@ main
 - github: [@george-shammar](https://github.com/george-shammar)
 - twitter: [@GeorgeShammar](https://twitter.com/GeorgeShammar)
 - linkedIn: [@George Gblenle](https://www.linkedin.com/in/george-g-5414091b7/)
+
+3. Luis Vinicius
+
+- github: [@luisvinicius09](https://github.com/luisvinicius09)
+- linkedIn: [@Luis Vinicius](https://www.linkedin.com/in/luis-vinicius/)
 
 ## Contributing
 

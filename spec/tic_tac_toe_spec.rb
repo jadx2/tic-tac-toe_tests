@@ -1,5 +1,5 @@
 # spec/tic-tac-toe_spec.rb
-require '../lib/game_logic'
+require_relative '../lib/game_logic'
 
 describe Board do
   let(:board) { Board.new }
